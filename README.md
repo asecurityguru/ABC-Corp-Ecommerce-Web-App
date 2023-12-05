@@ -1,155 +1,47 @@
-# WebGoat: A deliberately insecure Web Application
+# ABC Corp Ecommerce Web Application
 
-[![Build](https://github.com/WebGoat/WebGoat/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/WebGoat/WebGoat/actions/workflows/build.yml)
-[![java-jdk](https://img.shields.io/badge/java%20jdk-17-green.svg)](https://jdk.java.net/)
-[![OWASP Labs](https://img.shields.io/badge/OWASP-Lab%20project-f7b73c.svg)](https://owasp.org/projects/)
-[![GitHub release](https://img.shields.io/github/release/WebGoat/WebGoat.svg)](https://github.com/WebGoat/WebGoat/releases/latest)
-[![Gitter](https://badges.gitter.im/OWASPWebGoat/community.svg)](https://gitter.im/OWASPWebGoat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Discussions](https://img.shields.io/github/discussions/WebGoat/WebGoat)](https://github.com/WebGoat/WebGoat/discussions)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+# ABC Corp E-commerce Web App
 
-# Introduction
+## Overview
 
-WebGoat is a deliberately insecure web application maintained by [OWASP](http://www.owasp.org/) designed to teach web
-application security lessons.
+The ABC Corp E-commerce Web App is a feature-rich and user-friendly online platform designed to provide customers with a seamless shopping experience. This document outlines the key features and functionalities of the web app, focusing on its design, security measures, product catalog, and user-centric services.
 
-This program is a demonstration of common server-side application flaws. The
-exercises are intended to be used by people to learn about application security and
-penetration testing techniques.
+## Key Features
 
-**WARNING 1:** *While running this program your machine will be extremely
-vulnerable to attack. You should disconnect from the Internet while using
-this program.*  WebGoat's default configuration binds to localhost to minimize
-the exposure.
+### 1. Intuitive User Interface
 
-**WARNING 2:** *This program is for educational purposes only. If you attempt
-these techniques without authorization, you are very likely to get caught. If
-you are caught engaging in unauthorized hacking, most companies will fire you.
-Claiming that you were doing security research will not work as that is the
-first thing that all hackers claim.*
+The web app boasts an intuitive and visually appealing user interface, ensuring that customers can easily navigate through product listings, categories, and the checkout process. The design prioritizes user experience, making it easy for both new and returning customers to find what they're looking for.
 
-![WebGoat](docs/images/webgoat.png)
+### 2. Product Catalog
 
-# Installation instructions:
+ABC Corp's E-commerce Web App features a comprehensive product catalog, showcasing a wide array of items. From electronics and fashion to home essentials and beyond, customers can explore a vast selection of high-quality products.
 
-For more details check [the Contribution guide](/CONTRIBUTING.md)
+### 3. Secure Checkout
 
-## 1. Run using Docker
+Security is paramount, and the web app implements robust encryption protocols to secure customer transactions during the checkout process. Multiple payment options, including credit cards, digital wallets, and more, provide flexibility for users.
 
-Already have a browser and ZAP and/or Burp installed on your machine in this case you can run the WebGoat image directly using Docker.
+### 4. Personalized User Accounts
 
-Every release is also published on [DockerHub](https://hub.docker.com/r/webgoat/webgoat).
+Customers can create personalized accounts, enabling them to track their orders, save favorite items, and enjoy a tailored shopping experience. Account holders also receive personalized recommendations based on their preferences.
 
-```shell
-docker run -it -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 webgoat/webgoat
-```
+### 5. Responsive Design
 
-For some lessons you need the container run in the same timezone. For this you can set the TZ environment variable.
-E.g.
+The web app is optimized for various devices, ensuring a seamless experience across desktops, tablets, and smartphones. This responsive design caters to the preferences of customers who choose to shop on different devices.
 
-```shell
-docker run -it -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 -e TZ=America/Boise webgoat/webgoat
-```
+### 6. Order Tracking
 
-If you want to use OWASP ZAP or another proxy, you can no longer use 127.0.0.1 or localhost. but
-you can use custom host entries. For example:
+Once an order is placed, customers can easily track its status through the web app. Real-time updates and notifications keep users informed about the progress of their purchases from processing to shipping.
 
-```shell
-127.0.0.1 www.webgoat.local www.webwolf.local
-```
+### 7. Customer Support
 
-Then you can run the container with:
+ABC Corp prioritizes customer satisfaction, providing efficient customer support through various channels. Users can access FAQs, contact customer service, or seek assistance through live chat for prompt resolutions to queries and concerns.
 
-```shell
-docker run -it -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 -e WEBGOAT_HOST=www.webgoat.local -e WEBWOLF_HOST=www.webwolf.local -e TZ=America/Boise webgoat/webgoat
-```
+### 8. Promotions and Discounts
 
-Then visit http://www.webgoat.local:8080/WebGoat/ and http://www.webwolf.local:9090/WebWolf/
+The web app regularly offers promotions, discounts, and exclusive deals to enhance the overall shopping experience. Customers can take advantage of seasonal sales, special promotions, and loyalty programs.
 
-## 2. Run using Docker with complete Linux Desktop
+## Conclusion
 
-Instead of installing tools locally we have a complete Docker image based on running a desktop in your browser. This way you only have to run a Docker image which will give you the best user experience.
+In conclusion, ABC Corp's E-commerce Web App combines cutting-edge technology with a customer-centric approach, aiming to create a reliable and enjoyable platform for online shopping.
 
-```shell
-docker run -p 127.0.0.1:3000:3000 webgoat/webgoat-desktop
-```
-
-## 3. Standalone
-
-Download the latest WebGoat release from [https://github.com/WebGoat/WebGoat/releases](https://github.com/WebGoat/WebGoat/releases)
-
-```shell
-export TZ=Europe/Amsterdam # or your timezone
-java -Dfile.encoding=UTF-8 -jar webgoat-2023.5.jar
-```
-
-Click the link in the log to start WebGoat.
-
-## 4. Run from the sources
-
-### Prerequisites:
-
-* Java 17 or 21
-* Your favorite IDE
-* Git, or Git support in your IDE
-
-Open a command shell/window:
-
-```Shell
-git clone git@github.com:WebGoat/WebGoat.git
-```
-
-Now let's start by compiling the project.
-
-```Shell
-cd WebGoat
-git checkout <<branch_name>>
-# On Linux/Mac:
-./mvnw clean install
-
-# On Windows:
-./mvnw.cmd clean install
-
-# Using docker or podman, you can than build the container locally
-docker build -f Dockerfile . -t webgoat/webgoat
-```
-
-Now we are ready to run the project. WebGoat is using Spring Boot.
-
-```Shell
-# On Linux/Mac:
-./mvnw spring-boot:run
-# On Windows:
-./mvnw.cmd spring-boot:run
-
-```
-
-... you should be running WebGoat on http://localhost:8080/WebGoat momentarily.
-
-Note: The above link will redirect you to login page if you are not logged in. LogIn/Create account to proceed.
-
-To change the IP address add the following variable to the `WebGoat/webgoat-container/src/main/resources/application.properties` file:
-
-```
-server.address=x.x.x.x
-```
-
-## 4. Run with custom menu
-
-For specialist only. There is a way to set up WebGoat with a personalized menu. You can leave out some menu categories or individual lessons by setting certain environment variables.
-
-For instance running as a jar on a Linux/macOS it will look like this:
-
-```Shell
-export TZ=Europe/Amsterdam # or your timezone
-export EXCLUDE_CATEGORIES="CLIENT_SIDE,GENERAL,CHALLENGE"
-export EXCLUDE_LESSONS="SqlInjectionAdvanced,SqlInjectionMitigations"
-java -jar target/webgoat-2023.6-SNAPSHOT.jar
-```
-
-Or in a docker run it would (once this version is pushed into docker hub) look like this:
-
-```Shell
-docker run -d -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 -e EXCLUDE_CATEGORIES="CLIENT_SIDE,GENERAL,CHALLENGE" -e EXCLUDE_LESSONS="SqlInjectionAdvanced,SqlInjectionMitigations" webgoat/webgoat
-```
-
+*Note: This documentation is intended to provide an overview of the ABC Corp E-commerce Web App. For more detailed information, please refer to the official user guide.*
