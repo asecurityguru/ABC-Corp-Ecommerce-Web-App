@@ -1,7 +1,5 @@
 # ABC Corp Ecommerce Web Application
 
-# ABC Corp E-commerce Web App
-
 ## Overview
 
 The ABC Corp E-commerce Web App is a feature-rich and user-friendly online platform designed to provide customers with a seamless shopping experience. This document outlines the key features and functionalities of the web app, focusing on its design, security measures, product catalog, and user-centric services.
